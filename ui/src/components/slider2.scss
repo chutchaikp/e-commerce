@@ -1,0 +1,20 @@
+.slider2 {
+  width: 100%;
+
+  .xitems {
+    display: flex;
+    gap: 20px;
+    // width: 300vw;
+
+    .xitem {
+      width: 100vw;
+      background-color: teal;
+    }
+  }
+
+  // .long {
+  //   width: 100vw;
+  //   height: 50vh;
+  //   background-color: rebeccapurple;
+  // }
+}

@@ -1,0 +1,29 @@
+@import '../../colors.scss';
+
+.productList {
+  padding: 20px;
+  .filters {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+    }
+
+    .filter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      select {
+        font-size: 1.25rem;
+        padding: 10px;
+        border: 5px solid #d4d2d2;
+
+        &:focus {
+          border: 5px solid $color-primary;
+        }
+      }
+    }
+  }
+}

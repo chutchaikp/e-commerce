@@ -1,2 +1,114 @@
+@import '../colors.scss';
+
 .navbar {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  // height: 60px;
+  display: flex;
+  padding: 10px 20px;
+  // background-color: red;
+
+  @media screen and (max-width: 480px) {
+    // display: none;
+  }
+
+  .wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.5s ease-in-out;
+
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+    }
+
+    .left,
+    .center,
+    .right {
+      flex: 1;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .language {
+        // font-size: 14px;
+        cursor: pointer;
+      }
+      .search {
+        // flex: 1;
+        display: flex;
+        align-items: center;
+        border: 5px solid $color-primary;
+        padding: 10px;
+        margin-right: 50px;
+
+        input {
+          // display: flex;
+          // flex: 1;
+          // padding: 5px;
+          border: none;
+          // background-color: rgb(210, 210, 210);
+          width: 50px;
+          transition: all 0.2s ease;
+          width: 150px;
+
+          &:focus {
+            outline: none;
+            width: 300px;
+
+            @media screen and (max-width: 480px) {
+              width: 150px;
+            }
+          }
+        }
+      }
+    }
+
+    .center {
+      text-align: center;
+
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
+    }
+
+    .right {
+      display: flex;
+      display: flex;
+      justify-content: flex-end;
+
+      .menus {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        .mycart {
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          .counter {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 15px;
+            height: 15px;
+            padding: 5px;
+            background-color: $color-secondary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
 }

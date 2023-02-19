@@ -1,0 +1,12 @@
+create new branch
+
+$ git branch test
+
+show current branch
+
+$ git branch
+$ git branch --show-current
+
+switch 
+
+$ git checkout test

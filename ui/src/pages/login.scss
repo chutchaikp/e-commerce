@@ -1,0 +1,63 @@
+.login {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940),
+    center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 480px) {
+  }
+
+  .wrapper {
+    width: 25%;
+    padding: 20px;
+    background-color: white;
+    @media screen and (max-width: 480px) {
+      width: inherit;
+      margin: 10px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      input {
+        margin: 20px 10px;
+        padding: 10px;
+      }
+
+      .agreement {
+        font-size: 12px;
+        margin: 0 10px;
+      }
+
+      button {
+        width: 40%;
+        margin: 10px;
+        padding: 15px 20px;
+        letter-spacing: 5px;
+        color: white;
+        background-color: teal;
+        border: none;
+      }
+
+      .links {
+        margin: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}

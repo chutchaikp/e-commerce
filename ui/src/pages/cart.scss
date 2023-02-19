@@ -1,0 +1,139 @@
+.cart {
+  padding: 50px;
+  // display: flex;
+
+  .title {
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+      button {
+        padding: 20px;
+        background: black;
+        border: 2px solid black;
+        color: white;
+      }
+    }
+    .button:first-of-type {
+      button {
+        background: transparent;
+        border: 2px solid black;
+        color: black;
+      }
+    }
+    .texts {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .info {
+      flex: 3;
+
+      .product {
+        display: flex;
+        justify-content: space-between;
+        img {
+          flex: 1;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .detail {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .title {
+            text-align: inherit;
+          }
+          .id {
+          }
+          .color {
+            width: 25px;
+            height: 25px;
+            background-color: black;
+            border-radius: 50%;
+          }
+          .size {
+          }
+        }
+        .total {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+
+          .amount {
+            display: flex;
+            align-items: center;
+
+            span {
+              font-size: 2.5rem;
+              margin-bottom: 10px;
+            }
+          }
+          .price {
+            font-size: 2.5rem;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+
+    .summary {
+      // flex: 1;
+      padding: 20px;
+      padding-bottom: 30px;
+      border: 1px solid rgba(128, 128, 128, 0.609);
+      margin-top: 20px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: fit-content;
+
+      .title {
+        font-size: 3rem;
+        font-weight: 300;
+      }
+
+      .items {
+        width: inherit !important;
+        display: flex;
+        flex-direction: column;
+
+        .item {
+          width: inherit;
+          background-color: inherit !important;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      .total {
+        display: flex;
+        font-size: 2rem;
+        font-weight: 500;
+        justify-content: space-between;
+      }
+      button {
+        color: white;
+        // flex: 1;
+        padding: 20px;
+        background-color: black;
+        font-size: 1rem;
+        letter-spacing: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.app {
+  margin: 0;
+  width: 100%;
+  // background-color: blue;
+
+  // @media screen and (max-width: 480px) {
+  //   background-color: yellow;
+  // }
+
+  .items {
+    // width: 300vw;
+    display: flex;
+    gap: 10px;
+
+    .item {
+      width: 100vw;
+      background-color: rebeccapurple;
+    }
+  }
+}

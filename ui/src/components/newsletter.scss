@@ -1,0 +1,55 @@
+.newsletter {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #5555ff10;
+  padding: 0 10px;
+
+  .title {
+    font-size: 70px;
+    letter-spacing: 8px;
+
+    @media screen and (max-width: 480px) {
+      font-size: 40px;
+    }
+  }
+
+  .desc {
+    font-size: 24px;
+  }
+
+  .inputs {
+    // background-color: yellow;
+    margin: 20px;
+    width: 50%;
+    height: 60px;
+    display: flex;
+    border: 1px solid rgba(207, 207, 207, 0.576);
+    @media screen and (max-width: 480px) {
+      width: inherit;
+    }
+
+    input {
+      border: 5px solid #c6c6ec27;
+      flex: 8;
+      padding: 1.5rem;
+
+      border: none; /* <-- This thing here */
+      border: 5px solid #cccccc75;
+
+      &:focus {
+        border: none;
+        border: 5px solid #5555ff;
+      }
+    }
+    button {
+      flex: 1;
+      border: transparent;
+      background-color: #5555ff;
+      color: white;
+    }
+  }
+}
