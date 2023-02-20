@@ -1,6 +1,10 @@
 .cart {
   padding: 50px;
-  // display: flex;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 480px) {
+    padding: 0 20px;
+  }
 
   .title {
     font-weight: 300;
@@ -29,12 +33,19 @@
     .texts {
       display: flex;
       gap: 20px;
+
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
     }
   }
 
   .bottom {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+    }
 
     .info {
       flex: 3;
@@ -42,6 +53,10 @@
       .product {
         display: flex;
         justify-content: space-between;
+        @media screen and (max-width: 480px) {
+          flex-direction: column;
+          height: inherit;
+        }
         img {
           flex: 1;
           width: 100%;
@@ -105,6 +120,9 @@
       .title {
         font-size: 3rem;
         font-weight: 300;
+        @media screen and (max-width: 480px) {
+          font-size: 1.5em;
+        }
       }
 
       .items {

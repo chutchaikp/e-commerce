@@ -11,13 +11,13 @@ const Product = ({ p }) => {
       <div className="info">
         <div className="icons">
           <div className="icon">
-            <MdOutlineShoppingCart />
+            <MdOutlineShoppingCart size={35} />
           </div>
           <div className="icon">
-            <RiSearchEyeLine />
+            <RiSearchEyeLine size={35} />
           </div>
           <div className="icon">
-            <MdOutlineFavoriteBorder />
+            <MdOutlineFavoriteBorder size={35} />
           </div>
         </div>
       </div>
