@@ -1,5 +1,26 @@
+import { useEffect } from 'react';
+import { redirect, useNavigate } from 'react-router-dom';
 import './login.scss';
+
 const Login = () => {
+  // const user = true;
+  // debugger;
+
+  // // https://reactrouter.com/en/main/hooks/use-navigate
+  // if (user) {
+  //   redirect('/products');
+  // }
+
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const user = true;
+  //   if (user) {
+  //     navigate('/products');
+  //     // redirect('/products'); // not working
+  //   }
+  // }, []);
+
   return (
     <div className="login">
       <div className="wrapper">

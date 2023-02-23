@@ -39,6 +39,20 @@
 		],
 		"description": "Use Handle Button click or Input change X"
 	},
+	"My constant": {
+		"prefix": "cony",
+		"body": [
+			"const ${1} = (${2}) => { ",
+			"\ttry {",			
+			"\t\t${3}",
+			"\t} catch (error) {",
+			"\t\tconsole.log(error);",
+			"\t}",
+			"}",
+			"${4}"		
+		],
+		"description": "My constant"
+	},
 	"Arrow function with import scss": {
 		"prefix": "raxx",
 		"body": [

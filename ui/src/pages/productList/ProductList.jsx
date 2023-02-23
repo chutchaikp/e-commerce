@@ -1,13 +1,37 @@
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Products from '../../components/Products';
 import './productList.scss';
 const ProductList = () => {
+  const location = useLocation();
+  const cat = String(location.pathname).split('/')[2];
+  const [filters, setFilters] = useState({});
+  const [sort, setSort] = useState('newest');
+
+  // console.log(cat);
+
+  const handleFilters = (e) => {
+    e.preventDefault();
+    setFilters((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+
   return (
     <div className="productList">
+      <div className="title">
+        <h2>
+          {cat} {JSON.stringify(filters)}{' '}
+        </h2>
+      </div>
       <div className="filters">
         <div className="filter">
           <div className="label">Filter Products: </div>
-          <select>
-            <option>color</option>
+          <select name="color" onChange={handleFilters}>
+            <option disabled>color</option>
             <option>White</option>
             <option>Black</option>
             <option>Red</option>
@@ -16,10 +40,8 @@ const ProductList = () => {
             <option>Green</option>
           </select>
 
-          <select>
-            <option disabled selected>
-              Size
-            </option>
+          <select name="size" onChange={handleFilters}>
+            <option disabled>Size</option>
             <option>XS</option>
             <option>S</option>
             <option>M</option>
@@ -29,14 +51,14 @@ const ProductList = () => {
         </div>
         <div className="filter">
           <div className="label">Sort Products:</div>
-          <select>
-            <option selected>Newest</option>
-            <option>Price (asc)</option>
-            <option>Price (desc)</option>
+          <select name="sort" onChange={(e) => setSort(e.target.value)}>
+            <option value={'newest'}>Newest</option>
+            <option value={'asc'}>Price (asc)</option>
+            <option value={'desc'}>Price (desc)</option>
           </select>
         </div>
       </div>
-      <Products />
+      <Products cat={cat} filters={filters} sort={sort} />
     </div>
   );
 };

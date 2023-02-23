@@ -1,5 +1,47 @@
 $color-primary: #5555ff;
 $color-secondary: #8b27ef;
+$color-third: #c6c6c6;
+
+// $color-stackoverflow-100: hsl(200,8%,35%);
+
+$stackoverflow-color-primary: hsl(210, 8%, 35%); //--black-600: hsl(210,8%,35%);
+$stackoverflow-color-secondary: hsl(
+  210,
+  8%,
+  45%
+); // --black-500: hsl(210,8%,45%);
+
+// normal-border
+$stackoverflow-color-border: hsl(210, 8%, 85%); // --black-100: hsl(210,8%,85%);
+
+// outline-select
+// border-select
+$stackoverflow-color-border-selected: hsl(
+  210,
+  8%,
+  55%
+); // --black-400: hsl(210,8%,55%);
+
+// background-selected
+$stackoverflow-color-background-selected: hsl(
+  210,
+  8%,
+  90%
+); // --black-075: hsl(210,8%,90%);
+
+// color-select
+$stackoverflow-color-selected: hsl(
+  210,
+  8%,
+  25%
+); // --black-700: hsl(210,8%,25%);
+
+// outline-unselect
+$stackoverflow-color-border-unselected: hsl(
+  210,
+  8%,
+  65%
+); // --black-300: hsl(210,8%,65%);
 
 $color-primary-hex: rgb(85, 85, 255);
 $color-secondary-hex: rgb(139, 39, 239);

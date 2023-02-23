@@ -1,57 +1,39 @@
-import express from 'express'
-import cors from 'cors'
-import mongoose from 'mongoose'
-import cookieParser from 'cookie-parser'
-
-import productRoute from './routes/product.js'
-
+const express = require('express')
+const cors = require('cors')
 const app = express()
-
 const port = 5000
+// var bodyParser = require('body-parser');
+// app.use(bodyParser.json());
 
+app.use(cors())
+app.use(express.json())
+
+const authRoute = require('./routes/auth.js')
+const userRoute = require('./routes/user.js')
+const productRoute = require('./routes/product.js')
+const cartRoute = require('./routes/cart')
+const orderRoute = require('./routes/order')
+
+const dotenv = require('dotenv')
 dotenv.config();
 
-const connect = async () => {
-	try {
-		await mongoose.set('strictQuery', true);
-		await mongoose.connect(process.env.MONGODB_URL, () => {
-			console.log('MongoDB connected')
-		})
-	} catch (error) {
-		console.error(error)
-	}
-}
-mongoose.connection.on('disconnected', () => {
-	console.log('MongoDB disconnected!')
-})
-mongoose.connection.on('connected', () => {
-	console.log('MongoDB connected xxx')
-})
+// console.log('----- ', process.env.MONGO_URL)
 
-app.use(express.json());
-app.use(cors())
-app.use(cookieParser())
-
+const mongoose = require('mongoose')
+mongoose.set('strictQuery', false);
+mongoose.connect(process.env.MONGODB_URL)
+	.then(() => {
+		console.log('DB connection successfull!')
+	})
+	.catch((err) => {
+		console.log(err)
+	})
 
 app.get('/', (req, res) => res.send('Hello World!'))
+app.use('/api/auth', authRoute);
+app.use('/api/user', userRoute)
+app.use('/api/product', productRoute);
+app.use('/api/cart', cartRoute)
+app.use('/api/order', orderRoute)
 
-app.use('/api/products', productRoute)
-
-
-// CUSTOM MIDDLEWARE
-const errorHandler = (err, req, res, next) => {
-	// console.log('hi')
-	// res.status(500).send('hi')
-
-	const errorStatus = err.status || 500
-	const errorMessage = err.message || 'Something went wrong!'
-	return res.status(errorStatus).json({
-		success: false,
-		status: errorStatus,
-		message: errorMessage,
-		stack: err.stack,
-	})
-}
-app.use(errorHandler)
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(process.env.PORT || port, () => console.log(`App listening on port ${port}!`))

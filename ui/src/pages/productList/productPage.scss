@@ -94,9 +94,16 @@
         width: 100%;
       }
 
-      .up,
-      .down {
-        font-weight: 800;
+      div {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        .up,
+        .down {
+          font-weight: 800;
+          cursor: pointer;
+        }
       }
 
       span {

@@ -1,12 +1,30 @@
+import { useState } from 'react';
 import { IoMdAdd, IoMdRemove } from 'react-icons/io';
+import { useSelector } from 'react-redux';
+
+import StripeCheckout from 'react-stripe-checkout';
 
 import './cart.scss';
 const Cart = () => {
+  const { cartItems } = useSelector((state) => state.cart);
+  const [stripeToken, setStripeToken] = useState(null);
+
+  const onToken = (token) => {
+    try {
+      setStripeToken(token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // summarize
+  const totals = cartItems.map((c) => c.total);
+  const sum = totals.reduce((a, b) => a + b);
+
   return (
     <div className="cart">
       <div className="title">
-        {' '}
-        <h1>YOUR BAG</h1>{' '}
+        <h1>YOUR BAG</h1>
       </div>
 
       <div className="top">
@@ -24,77 +42,65 @@ const Cart = () => {
 
       <div className="bottom">
         <div className="info">
-          <div className="product">
-            <img
-              src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A"
-              alt=""
-            />
-            <div className="detail">
-              <span className="title">Product: JESSIE THUNDER SHOES</span>
-              <span className="id">ID: 123456789</span>
-              <div className="color"></div>
-              <div className="size">Size: 37.5</div>
-            </div>
-            <div className="total">
-              <div className="amount">
-                <div className="add">
-                  <IoMdAdd size={33} />
+          {cartItems.map((c, idx) => {
+            return (
+              <div key={idx} className="product">
+                <img src={c.product?.img} alt="" />
+                <div className="detail">
+                  <span className="title">Product: {c.product?.title}</span>
+                  <span className="id">ID: {c.product?._id}</span>
+                  <div className="color"></div>
+                  <div className="size">Size: {c.size}</div>
                 </div>
-                <span className="amount">2</span>
-                <div className="remove">
-                  <IoMdRemove size={33} />
-                </div>
-              </div>
-              <div className="price">$ 30</div>
-            </div>
-          </div>
-
-          <div className="product">
-            <img
-              src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png"
-              alt=""
-            />
-            <div className="detail">
-              <span className="title">Product: HAKURA T-SHIRT</span>
-              <span className="id">ID: 123456789</span>
-              <div className="color"></div>
-              <div className="size">Size: 37.5</div>
-            </div>
-            <div className="total">
-              <div className="amount">
-                <div className="add">
-                  <IoMdAdd size={33} />
-                </div>
-                <span className="amount">2</span>
-                <div className="remove">
-                  <IoMdRemove size={33} />
+                <div className="total">
+                  <div className="amount">
+                    <div className="add">
+                      <IoMdAdd size={33} />
+                    </div>
+                    <span className="amount">{c.quantity}</span>
+                    <div className="remove">
+                      <IoMdRemove size={33} />
+                    </div>
+                  </div>
+                  <div className="price">$ {c.total}</div>
                 </div>
               </div>
-              <div className="price">$ 30</div>
-            </div>
-          </div>
+            );
+          })}
         </div>
         <div className="summary">
           <div className="title">ORDER SUMMARY</div>
           <div className="items">
             <div className="item">
               <span>Subtotal</span>
-              <span>$ 80</span>
+              <span>$ {sum}</span>
             </div>
             <div className="item">
               <span>Estimated Shiping </span>
               <span>$ 5.9</span>
             </div>
             <div className="item">
-              <span>Shipping Diecount</span>
-              <span>$ 5.9</span>
+              <span>Shipping Discount</span>
+              <span>$ -5.9</span>
             </div>
           </div>
           <div className="total">
             <span>Total</span>
-            <span>$ 80</span>
+            <span>$ {sum}</span>
           </div>
-          <button>CHECKOUT NOW</button>
+
+          <StripeCheckout
+            name="DEV"
+            image="https://avatars.githubusercontent.com/u/2068733?s=400&u=e19ccdba63aa7c94653d463fda4e83dc93b68deb&v=4"
+            billingAddress
+            shippingAddress
+            description={`Your total is ${sum}`}
+            amount={sum}
+            stripeKey={KEY}
+            o
+          >
+            <button onClick={() => {}}>CHECKOUT NOW</button>
+          </StripeCheckout>
         </div>
       </div>
     </div>

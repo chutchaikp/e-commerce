@@ -1,3 +1,7 @@
+// https://www.mecshopping.it/en/skinny-jeans-P80081.htm
+// https://www.mecshopping.it/giacche-jeans-donna-C202G2.htm
+// https://www.amazon.it/ONLY-NOS-Giacca-Jeans-Donna/dp/B07HDJXP7Z?th=1
+
 export const sliderItems = [
 	{
 		id: 1,
@@ -27,16 +31,19 @@ export const categories = [
 		id: 1,
 		img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 		title: "SHIRT STYLE!",
+		cat: "woman"
 	},
 	{
 		id: 2,
 		img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 		title: "LOUNGEWEAR LOVE",
+		cat: "coat"
 	},
 	{
 		id: 3,
 		img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
 		title: "LIGHT JACKETS",
+		cat: "other"
 	},
 ];
 

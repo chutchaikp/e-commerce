@@ -2,6 +2,9 @@
 
 .productList {
   padding: 20px;
+  .title {
+    font-size: 2rem;
+  }
   .filters {
     display: flex;
     justify-content: space-between;
@@ -21,14 +24,14 @@
       select {
         font-size: 1.25rem;
         padding: 10px;
-        border: 5px solid #d4d2d2;
+        border: 1px solid $stackoverflow-color-border-unselected;
 
         @media screen and (max-width: 480px) {
           width: 100%;
         }
 
         &:focus {
-          border: 5px solid $color-primary;
+          border: 1px solid $stackoverflow-color-border-selected;
         }
       }
     }

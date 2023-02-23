@@ -44,7 +44,8 @@
         // flex: 1;
         display: flex;
         align-items: center;
-        border: 5px solid $color-primary;
+        border: 1px solid $stackoverflow-color-selected;
+        color: $stackoverflow-color-primary;
         padding: 10px;
         margin-right: 50px;
 
@@ -100,7 +101,7 @@
             width: 15px;
             height: 15px;
             padding: 5px;
-            background-color: $color-secondary;
+            background-color: #5555ff;
             display: flex;
             justify-content: center;
             align-items: center;
