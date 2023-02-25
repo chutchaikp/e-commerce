@@ -19,6 +19,13 @@ router.post('/register', async (req, res) => {
 	}
 });
 
+// router.post('/login', (req, res) => {
+// 	debugger;
+// 	// 401 Unauthorized
+// 	// 500 Internal Server Error
+// 	res.status(200).json({ status: 'error', });
+// })
+
 router.post('/login', async (req, res) => {
 	try {
 		debugger;

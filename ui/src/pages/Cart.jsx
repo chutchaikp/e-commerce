@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { IoMdAdd, IoMdRemove } from 'react-icons/io';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import StripeCheckout from 'react-stripe-checkout';
 
 import './cart.scss';
 const Cart = () => {
+  const navigate = useNavigate();
   const { cartItems } = useSelector((state) => state.cart);
+  const [stripePublicKey, setStripePublicKey] = useState(
+    process.env.REACT_APP_STRIPE
+  );
+
   const [stripeToken, setStripeToken] = useState(null);
 
   const onToken = (token) => {
@@ -16,6 +23,26 @@ const Cart = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    debugger;
+    async function makeRequest() {
+      try {
+        const res = await axios.post(
+          'http://localhost:5000/api/checkout/payment',
+          {
+            tokenId: stripeToken.id,
+            amount: sum,
+          }
+        );
+        console.log(res);
+        navigate('/success', { data: res });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    stripeToken && sum > 1 && makeRequest();
+  }, [stripeToken]);
 
   // summarize
   const totals = cartItems.map((c) => c.total);
@@ -70,6 +97,7 @@ const Cart = () => {
         </div>
         <div className="summary">
           <div className="title">ORDER SUMMARY</div>
+          {/* <span>{stripePublicKey}</span> */}
           <div className="items">
             <div className="item">
               <span>Subtotal</span>
@@ -96,7 +124,8 @@ const Cart = () => {
             shippingAddress
             description={`Your total is ${sum}`}
             amount={sum}
-            stripeKey={KEY}
+            token={onToken}
+            stripeKey={stripePublicKey}
             o
           >
             <button onClick={() => {}}>CHECKOUT NOW</button>

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   // const { product, quantity } = useSelector((state) => state.cart);
   debugger;
+  const { currentUser } = useSelector((state) => state.user);
   const { cartItems } = useSelector((state) => state.cart);
 
   return (
@@ -30,8 +31,15 @@ const Navbar = () => {
         </div>
         <div className="right">
           <div className="menus">
-            <div className="menu">REGISTER</div>
-            <div className="menu">SIGN IN</div>
+            {currentUser ? (
+              <>{currentUser.username}</>
+            ) : (
+              <>
+                <div className="menu">REGISTER</div>
+                <div className="menu">SIGN IN</div>
+              </>
+            )}
+
             <div className="menu">
               <Link to="/cart">
                 <div className="mycart">
