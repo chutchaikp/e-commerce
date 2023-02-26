@@ -1,0 +1,10 @@
+.home {
+  flex: 4;
+  display: flex;
+  // background-color: rebeccapurple;
+  flex-direction: column;
+
+  .homeWidgets {
+    display: flex;
+  }
+}

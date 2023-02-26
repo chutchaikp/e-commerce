@@ -1,0 +1,118 @@
+.product {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+
+    a > button {
+      color: white;
+      background-color: teal;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+    }
+  }
+
+  .top {
+    display: flex;
+    gap: 50px;
+
+    .topLeft {
+      flex: 1;
+      padding: 20px;
+      box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    }
+
+    .topRight {
+      flex: 1;
+      padding: 20px;
+      box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+
+      .infoTop {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        img {
+          width: 55px;
+          height: 55px;
+          border-radius: 50%;
+        }
+      }
+      .infoBottom {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .productInfoItem {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    .form {
+      display: flex;
+      gap: 50px;
+      margin-top: 50px;
+
+      .formLeft {
+        flex: 1;
+        padding: 20px;
+        box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        label {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          input {
+            padding: 10px;
+          }
+          select {
+            padding: 10px;
+          }
+        }
+      }
+      .formRight {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        // justify-content: flex-end;
+        padding: 20px;
+        box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+        gap: 20px;
+
+        .upload {
+          display: flex;
+          align-items: center;
+          gap: 50px;
+          img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+          }
+        }
+
+        .btn {
+          button {
+            padding: 10px;
+            background-color: teal;
+            color: white;
+            border: none;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+}

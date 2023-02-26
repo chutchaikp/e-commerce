@@ -1,0 +1,82 @@
+.products {
+  flex: 5;
+
+  display: flex;
+  flex-direction: column;
+
+  table {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 100px;
+
+    tr {
+      td {
+        flex: 1;
+        // border: 1px solid blue;
+        padding: 15px 0;
+        border-bottom: 1px solid lightgray;
+
+        img {
+          width: 55px;
+          height: 55px;
+          border-radius: 50%;
+        }
+        input[type='checkbox'] {
+          margin-right: 20px;
+        }
+        button {
+          cursor: pointer;
+          border: none;
+          background: transparent;
+        }
+      }
+
+      td.title {
+        flex: 1;
+        font-weight: bold;
+        text-transform: capitalize;
+
+        .titleColumn {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-right: 20px;
+          cursor: pointer;
+
+          &::after {
+            content: ' | ';
+            color: lightgray;
+          }
+
+          .wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .arrow {
+              opacity: 0;
+            }
+            .columnName:hover + .arrow {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+input[type='checkbox'] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 20px;
+
+  accent-color: #9b59b6;
+}

@@ -1,0 +1,33 @@
+.sidebar {
+  flex: 0;
+  padding: 0 30px;
+
+  .sidebarWrapper {
+    .sidebarMenu {
+      .sidebarTitle {
+      }
+      .sidebarList {
+        list-style: none;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        a {
+          text-decoration: none;
+          // color: inherit;
+        }
+        a > li {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+        }
+        li {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
